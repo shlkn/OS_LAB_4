@@ -1,11 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-int main()
+int main(int argc, char *argv[])
 {
-	printf("Please enter file name\n");
 	char flName[256];
-	scanf("%s", flName);
+	if(argc > 1)
+		strcpy(flName, argv[1]);
+	else
+	{
+		printf("Please enter file name\n");
+		scanf("%s", flName);
+	}
 	FILE *in;
 	in = fopen(flName, "r");
 	if(in == NULL)
@@ -16,7 +22,7 @@ int main()
 
 
 
-	printf("Reading file - %s\n", flName);
+	//printf("Reading file - %s\n", flName);
 	char buff[1024];
 	while(fgets(buff, sizeof(buff), in) != NULL)
 		printf("%s", buff);
