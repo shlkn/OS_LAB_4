@@ -1,2 +1,2 @@
-program1: program1.c
-	gcc program1.c -o program1 -Wall -fsanitize=address
+program2: program2.c
+	gcc program2.c -o program2 -Wall -fsanitize=address
